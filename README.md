@@ -1,1 +1,5 @@
-= DOTFILES =
+# DOTFILES 
+
+    * vimrc
+    * bashrc
+    * tmux
