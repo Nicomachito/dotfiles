@@ -29,12 +29,15 @@ set $wallpaper ~/Pictures/wallpapers/wallpaper.jpeg
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1  pos 0,0
+output eDP-1  pos 0,0 scale 1.2
 output DP-1 pos -500,-1800 scale 1.2
+output DP-2 pos -500,-1800 scale 1.5
 
 # SWAYBG MUST ME INSTALLED WITH CORRECT USEFLAGS TO SUPPORT JPGS
-output DP-1 bg $wallpaper fill
-output eDP-1 bg $wallpaper fill
+#output DP-1 bg $wallpaper fill
+#output eDP-1 bg $wallpaper fill
+output "*" bg $wallpaper fill
+#output eDP-1 bg $wallpaper fill
 ### Idle configuration
 #
 # Example configuration:
@@ -44,10 +47,10 @@ bindsym $mod+i exec swaylock --ignore-empty-password --show-failed-attempts \
     --inside-clear-color 11a8cd --ring-clear-color 29b8db \
     --inside-ver-color 2472c8 --ring-ver-color 3b8eea \
     --inside-wrong-color cd3131 --ring-wrong-color f14c4c \
-    --image /home/marcos/Pictures/wallpapers/wallpaper.jpeg
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    --image $wallpaper
+ # exec swayidle -w \
+#          timeout 30 'swaylock -f -c 000000' \
+#          timeout 60 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 #          before-sleep 'swaylock -f -c 000000'
 
 #
@@ -217,14 +220,17 @@ bindsym $mod+r mode "resize"
     # Volume Controls for pipewire
    #bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
    #bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
-   bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special key to take a screenshot with grim
-    bindsym Print exec grim
+   
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+bindsym XF86MonBrightnessUp exec xbacklight -inc 4
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 #
 # Status Bar:
