@@ -15,10 +15,10 @@ if [[ $- != *i* ]] ; then
 fi
 
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    gentoo-pipewire-launcher &
     dbus-run-session sway &
+    gentoo-pipewire-launcher &
 fi
 
 # Put your fun stuff here.
 alias vi=nvim
-
+export PATH=$PATH:/home/marcos/applications
