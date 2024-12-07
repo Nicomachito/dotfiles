@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu  wofi --width=400 --height=260 --hide-scroll --show=run
+set $menu fuzzel 
 set $wallpaper ~/Pictures/wallpapers/wallpaper.jpeg
 
 ### Output configuration
@@ -29,7 +29,7 @@ set $wallpaper ~/Pictures/wallpapers/wallpaper.jpeg
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1  pos 0,0 scale 1.2 
+output eDP-1  pos 0,0 scale 1
 #output DP-1 pos -500,-1800 scale 1.2
 output DP-1 pos -500,-1800 scale 1.2
 output HDMI-A-1 pos -500,-1800 scale 1.2
@@ -251,7 +251,7 @@ bar {
     gaps outer -4
     gaps top -2
     gaps bottom 0
-    default_border pixel 3 
+    default_border pixel 2 
     default_floating_border pixel 2
 
     ### Gruvbox
@@ -277,5 +277,5 @@ bar {
 ## SWAYFX
 
 shadows enable
-corner_radius 7 
+corner_radius 6 
 include @sysconfdir@/sway/config.d/*
