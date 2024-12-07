@@ -203,6 +203,10 @@ label:focus {
     color: #2a5c45;
     min-width: 100px;
 }
+#custom-icon {
+    color: #6E56AF;
+    font-size: 16px;
+}
 
 #custom-media.custom-spotify {
     background-color: #66cc99;

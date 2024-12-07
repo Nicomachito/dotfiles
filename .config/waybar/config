@@ -5,10 +5,10 @@
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "idle_inhibitor", "custom/suspend", "custom/poweroff", "sway/mode", "custom/media", "sway/window"],
+    "modules-left": ["custom/icon","sway/workspaces", "idle_inhibitor",  "sway/mode", "sway/window","mpd"],
     "modules-center": [],
     // 2020-10-21: disable "cpu" so it never forces a higher power state
-    "modules-right": ["tray", "pulseaudio", "network", "memory", "temperature#cpu", "temperature#gpu", "backlight", "keyboard-state", "battery", "battery#bat2", "clock"],
+    "modules-right": ["tray", "pulseaudio", "backlight", "battery","clock","custom/poweroff"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -82,11 +82,15 @@
         // "icon-size": 21,
         "spacing": 10
     },
+    "custom/icon": {
+    "format": "   ",
+    "tooltip": false
+    },
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%I:%M:%S}",
-        "format": "{:%Y-%m-%d %I:%M}",
+        "format": "{:%m/%d %H:%M}",
         "interval": 60
     },
     "cpu": {
@@ -135,7 +139,7 @@
         "bat": "BAT2"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interface": "wlp3*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
@@ -145,14 +149,15 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        //"format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+//        "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": " ",
             "hands-free": "",
             "headset": "",
             "phone": "",
