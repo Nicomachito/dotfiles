@@ -114,3 +114,4 @@ fi
 
 # Put your fun stuff here.
 alias vi=nvim
+export PATH="/home/marcos/go/bin/:$PATH"
